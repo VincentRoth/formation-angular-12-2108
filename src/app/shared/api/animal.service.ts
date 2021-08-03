@@ -12,8 +12,29 @@ export class AnimalService {
       species: "dog",
       veterinarian: 'vet',
       comment: 'comment',
-      email: 'email',
+      email: 'email@test.com',
       phoneNumber: 'phoneNumber'
     };
+  }
+
+  getAll(): Animal[] {
+    return [
+      {
+        name: "Michat 1",
+        species: "dog",
+        veterinarian: 'vet',
+        comment: 'comment',
+        email: 'email',
+        phoneNumber: 'phoneNumber'
+      },
+      {
+        name: "Michat 2",
+        species: "dog",
+        veterinarian: 'vet',
+        comment: 'comment',
+        email: 'email',
+        phoneNumber: 'phoneNumber'
+      }
+    ]
   }
 }
