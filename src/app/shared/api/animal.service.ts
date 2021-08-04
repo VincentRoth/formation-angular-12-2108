@@ -3,38 +3,38 @@ import { Animal } from './animal';
 
 @Injectable()
 export class AnimalService {
-
-  constructor() { }
+  constructor() {}
 
   get(): Animal {
+    ''.replace(/\./g, ' ');
     return {
-      name: "Michat (service)",
-      species: "dog",
+      name: 'Michat (service)',
+      species: 'dog',
       veterinarian: 'vet',
       comment: 'comment',
       email: 'email@test.com',
-      phoneNumber: 'phoneNumber'
+      phoneNumber: '06.12.34.56.78',
     };
   }
 
   getAll(): Animal[] {
     return [
       {
-        name: "Michat 1",
-        species: "dog",
+        name: 'Michat 1',
+        species: 'dog',
         veterinarian: 'vet',
         comment: 'comment',
         email: 'email',
-        phoneNumber: 'phoneNumber'
+        phoneNumber: '06.12.34.56.78',
       },
       {
-        name: "Michat 2",
-        species: "dog",
+        name: 'Michat 2',
+        species: 'dog',
         veterinarian: 'vet',
         comment: 'comment',
         email: 'email',
-        phoneNumber: 'phoneNumber'
-      }
-    ]
+        phoneNumber: '06.12.34.56.78',
+      },
+    ];
   }
 }

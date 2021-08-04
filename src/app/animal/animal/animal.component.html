@@ -1,8 +1,9 @@
-<p>
-    Nom : {{animal?.name}}<br/>
-    Espèce : {{animal?.species}}<br/>
-    Vétérinaire : {{animal?.veterinarian}}<br/>
-    Email : <a appMailTo>{{animal?.email}}</a><br/>
-    Téléphone : {{animal?.phoneNumber}}<br/>
-    Commentaire : {{animal?.comment}}
+<p *ngIf="animal">
+  Nom : {{ animal.name }}<br />
+  Espèce : {{ animal.species }}<br />
+  Vétérinaire : {{ animal.veterinarian }}<br />
+  Email : <a appMailTo>{{ animal.email }}</a>
+  <br />
+  Téléphone : {{ animal.phoneNumber | phoneNumberFormat: "-" }}<br />
+  Commentaire : {{ animal.comment }}
 </p>
