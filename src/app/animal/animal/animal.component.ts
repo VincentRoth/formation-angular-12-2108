@@ -5,7 +5,7 @@ import { AnimalService } from '../../shared/api/animal.service';
 @Component({
   selector: 'app-animal',
   templateUrl: './animal.component.html',
-  styleUrls: ['./animal.component.scss']
+  styleUrls: ['./animal.component.scss'],
 })
 export class AnimalComponent implements OnInit {
   animal?: Animal;
@@ -15,5 +15,4 @@ export class AnimalComponent implements OnInit {
   ngOnInit(): void {
     this.animal = this.animalService.get();
   }
-
 }
