@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { switchMap } from 'rxjs/operators';
 import { Animal } from '../../shared/api/animal';
 import { AnimalService } from '../../shared/api/animal.service';
 
@@ -13,11 +14,25 @@ export class AnimalListComponent implements OnInit {
   constructor(private animalService: AnimalService) {}
 
   ngOnInit(): void {
-    this.animals = this.animalService.getAll();
+    this.animalService.getAll().subscribe((data) => {
+      this.animals = data;
+    });
   }
 
   onDelete(animal: Animal): void {
-    let index = this.animals!.indexOf(animal);
-    this.animals?.splice(index, 1);
+    /* this.animalService.delete(animal.id).subscribe(() => {
+      this.animalService.getAll().subscribe((data) => {
+        this.animals = data;
+      });
+    }); */
+
+    this.animalService
+      .delete(animal.id)
+      .pipe(switchMap(() => this.animalService.getAll()))
+      .subscribe({
+        next: (data) => {
+          this.animals = data;
+        },
+      });
   }
 }
