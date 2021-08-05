@@ -1,58 +1,48 @@
-<form #animalForm="ngForm" (ngSubmit)="onSubmit(animalForm.form)" *ngIf="model">
+<form
+  #animalForm="ngForm"
+  (ngSubmit)="onSubmit()"
+  *ngIf="formGroup"
+  [formGroup]="formGroup"
+>
   <label for="name">Nom</label>
-  <input
-    name="name"
-    [(ngModel)]="model.name"
-    id="name"
-    required
-    minlength="4"
-    #nameCtrl="ngModel"
-  />
-  <p *ngIf="animalForm.submitted && nameCtrl.errors?.required">
+  <input formControlName="name" id="name" />
+  <p *ngIf="animalForm.submitted && formGroup.get('name').errors?.required">
     Le champs est manquant.
   </p>
-  <p *ngIf="animalForm.submitted && nameCtrl.errors?.minlength">
+  <p *ngIf="animalForm.submitted && formGroup.get('name').errors?.minlength">
     Le champs doit avoir
-    {{ nameCtrl.errors?.minlength.requiredLength }} caractères.
+    {{ formGroup.get("name").errors?.minlength.requiredLength }} caractères.
   </p>
   <br />
 
   <label for="species">Espèce</label>
-  <input
-    name="species"
-    [(ngModel)]="model.species"
-    id="species"
-    required
-    #speciesCtrl="ngModel"
-  />
-  <p *ngIf="animalForm.submitted && speciesCtrl.errors?.required">
+  <input formControlName="species" id="species" />
+  <p *ngIf="animalForm.submitted && formGroup.get('species').errors?.required">
     Le champs est manquant.
   </p>
   <br />
 
   <label for="veterinarian">Vétérinaire</label>
-  <input
-    name="veterinarian"
-    [(ngModel)]="model.veterinarian"
-    id="veterinarian"
-    required
-    #vetCtrl="ngModel"
-  />
-  <p *ngIf="animalForm.submitted && vetCtrl.errors?.required">
+  <input formControlName="veterinarian" id="veterinarian" />
+  <p
+    *ngIf="
+      animalForm.submitted && formGroup.get('veterinarian').errors?.required
+    "
+  >
     Le champs est manquant.
   </p>
   <br />
 
   <label for="email">Email</label>
-  <input name="email" [(ngModel)]="model.email" id="email" />
+  <input formControlName="email" id="email" />
   <br />
 
   <label for="phoneNumber">Téléphone</label>
-  <input name="phoneNumber" [(ngModel)]="model.phoneNumber" id="phoneNumber" />
+  <input formControlName="phone" id="phoneNumber" />
   <br />
 
   <label for="comment">Comment</label>
-  <textarea name="comment" [(ngModel)]="model.comment" id="comment"></textarea>
+  <textarea formControlName="comment" id="comment"></textarea>
   <br />
 
   <button type="submit">Envoyer</button>
