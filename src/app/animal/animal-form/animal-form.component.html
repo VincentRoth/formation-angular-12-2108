@@ -1,0 +1,31 @@
+<form (ngSubmit)="onSubmit()" *ngIf="model">
+  <label for="name">Nom</label>
+  <input name="name" [(ngModel)]="model.name" id="name" />
+  <br />
+
+  <label for="species">Espèce</label>
+  <input name="species" [(ngModel)]="model.species" id="species" />
+  <br />
+
+  <label for="veterinarian">Vétérinaire</label>
+  <input
+    name="veterinarian"
+    [(ngModel)]="model.veterinarian"
+    id="veterinarian"
+  />
+  <br />
+
+  <label for="email">Email</label>
+  <input name="email" [(ngModel)]="model.email" id="email" />
+  <br />
+
+  <label for="phoneNumber">Téléphone</label>
+  <input name="phoneNumber" [(ngModel)]="model.phoneNumber" id="phoneNumber" />
+  <br />
+
+  <label for="comment">Comment</label>
+  <textarea name="comment" [(ngModel)]="model.comment" id="comment"></textarea>
+  <br />
+
+  <button type="submit">Envoyer</button>
+</form>
