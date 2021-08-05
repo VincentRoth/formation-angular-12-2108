@@ -1,10 +1,33 @@
-<form (ngSubmit)="onSubmit()" *ngIf="model">
+<form #animalForm="ngForm" (ngSubmit)="onSubmit(animalForm.form)" *ngIf="model">
   <label for="name">Nom</label>
-  <input name="name" [(ngModel)]="model.name" id="name" />
+  <input
+    name="name"
+    [(ngModel)]="model.name"
+    id="name"
+    required
+    minlength="4"
+    #nameCtrl="ngModel"
+  />
+  <p *ngIf="animalForm.submitted && nameCtrl.errors?.required">
+    Le champs est manquant.
+  </p>
+  <p *ngIf="animalForm.submitted && nameCtrl.errors?.minlength">
+    Le champs doit avoir
+    {{ nameCtrl.errors?.minlength.requiredLength }} caractères.
+  </p>
   <br />
 
   <label for="species">Espèce</label>
-  <input name="species" [(ngModel)]="model.species" id="species" />
+  <input
+    name="species"
+    [(ngModel)]="model.species"
+    id="species"
+    required
+    #speciesCtrl="ngModel"
+  />
+  <p *ngIf="animalForm.submitted && speciesCtrl.errors?.required">
+    Le champs est manquant.
+  </p>
   <br />
 
   <label for="veterinarian">Vétérinaire</label>
@@ -12,7 +35,12 @@
     name="veterinarian"
     [(ngModel)]="model.veterinarian"
     id="veterinarian"
+    required
+    #vetCtrl="ngModel"
   />
+  <p *ngIf="animalForm.submitted && vetCtrl.errors?.required">
+    Le champs est manquant.
+  </p>
   <br />
 
   <label for="email">Email</label>
