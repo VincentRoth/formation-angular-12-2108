@@ -5,6 +5,7 @@ import { MailToDirective } from './mail-to.directive';
 import { PhoneNumberFormatPipe } from './phone-number-format.pipe';
 import { TimeInterceptor } from './api/time.interceptor';
 import { UiModule } from './ui/ui.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   providers: [
@@ -13,6 +14,6 @@ import { UiModule } from './ui/ui.module';
   ],
   declarations: [MailToDirective, PhoneNumberFormatPipe],
   imports: [HttpClientModule],
-  exports: [MailToDirective, PhoneNumberFormatPipe, UiModule],
+  exports: [MailToDirective, PhoneNumberFormatPipe, UiModule, TranslateModule],
 })
 export class SharedModule {}

@@ -1,0 +1,5 @@
+{
+  "ANIMAL": {
+    "NAME": "Nom : {{value}}"
+  }
+}
