@@ -7,7 +7,7 @@ import { AnimalItemComponent } from './animal-item/animal-item.component';
 import { AnimalRoutingModule } from './animal-routing.module';
 import { AnimalRootComponent } from './animal-root/animal-root.component';
 import { AnimalFormComponent } from './animal-form/animal-form.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     SharedModule,
     AnimalRoutingModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
 })
 export class AnimalModule {}

@@ -1,0 +1,11 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+
+  app-animal-item {
+    margin: 0.5rem;
+    &::ng-deep mat-card {
+      max-width: 200px;
+    }
+  }
+}
